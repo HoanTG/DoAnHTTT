@@ -32,5 +32,10 @@ namespace DoAnHTTT
             InitializeComponent();
             MarkPlace();
         }
+
+        private void btndsqa_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
