@@ -35,7 +35,7 @@ namespace DoAnHTTT
 
         private void btndsqa_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new DSQA());
         }
     }
 }
