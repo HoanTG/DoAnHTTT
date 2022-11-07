@@ -4,7 +4,7 @@
              x:Class="DoAnHTTT.DSQA">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstqa">
+            <ListView x:Name="lstqa" ItemSelected="lstqa_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding MSQA}" Detail="{Binding TenQA}"/>

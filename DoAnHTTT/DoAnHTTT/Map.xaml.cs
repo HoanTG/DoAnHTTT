@@ -15,12 +15,12 @@ namespace DoAnHTTT
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Map : ContentPage
     {
-        void MarkPlace()
+        void MarkPlace(QuanAn qa)
         {
             Pin pin = new Pin
             {
-                Label = "Đại học công nghệ thông tin TPHCM -DHQG",
-                Address = "KP6, phường Linh Trung, TP Thủ Đức",
+                Label = qa.TenQA,
+                Address = "",
                 Type = PinType.Place,
                 Position = new Position(10.8700, 106.8031)
             };
@@ -30,7 +30,11 @@ namespace DoAnHTTT
         public Map()
         {
             InitializeComponent();
-            MarkPlace();
+        }
+        public Map(QuanAn qa)
+        {
+            InitializeComponent();
+            MarkPlace(qa);
         }
 
         private void btndsqa_Clicked(object sender, EventArgs e)
