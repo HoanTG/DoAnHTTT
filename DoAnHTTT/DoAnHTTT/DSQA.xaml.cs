@@ -31,7 +31,7 @@ namespace DoAnHTTT
         private void lstqa_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             QuanAn qa = (QuanAn)lstqa.SelectedItem;
-            Navigation.PushAsync(new Map(qa));
+            Navigation.PushAsync(new Mapp(qa));
         }
     }
 }

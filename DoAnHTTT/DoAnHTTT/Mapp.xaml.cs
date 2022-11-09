@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace DoAnHTTT
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Map : ContentPage
+    public partial class Mapp : ContentPage
     {
         void MarkPlace(QuanAn qa)
         {
@@ -22,19 +22,26 @@ namespace DoAnHTTT
                 Label = qa.TenQA,
                 Address = "",
                 Type = PinType.Place,
-                Position = new Position(10.8700, 106.8031)
+                Position = new Position(qa.X, qa.Y)
             };
             MapApp.Pins.Add(pin);
-
         }
-        public Map()
+        void CenterPoint(float x, float y)
+        {
+            Position position = new Position(x, y);
+            MapSpan mapSpan = new MapSpan(position, 0.01, 0.01);
+            MapApp = new Map(mapSpan);
+        }
+        public Mapp()
         {
             InitializeComponent();
+            CenterPoint(0,0);
         }
-        public Map(QuanAn qa)
+        public Mapp(QuanAn qa)
         {
             InitializeComponent();
             MarkPlace(qa);
+            CenterPoint(qa.X, qa.Y);
         }
 
         private void btndsqa_Clicked(object sender, EventArgs e)

@@ -8,5 +8,7 @@ namespace DoAnHTTT
     {
         public string MSQA { get; set; }
         public string TenQA { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
     }
 }

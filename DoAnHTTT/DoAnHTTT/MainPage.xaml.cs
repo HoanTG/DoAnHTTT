@@ -17,7 +17,7 @@ namespace DoAnHTTT
 
         private void Map_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Map());
+            Navigation.PushAsync(new Mapp());
         }
     }
 }
