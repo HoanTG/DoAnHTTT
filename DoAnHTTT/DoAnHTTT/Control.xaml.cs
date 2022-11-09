@@ -14,18 +14,18 @@ namespace DoAnHTTT
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Control : ContentPage
     {
-        async void LayDSTP()
+       /* async void LayDSTP()
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
                 ("http://192.168.2.24/doan/api/ThanhPho/LayDSThanhPho");
             var dstp = JsonConvert.DeserializeObject<List<City>>(kq);
             lstdstp.ItemsSource = dstp;
-        }
+        }*/
         public Control()
         {
             InitializeComponent();
-            LayDSTP();
+            //LayDSTP();
         }
     }
 }
