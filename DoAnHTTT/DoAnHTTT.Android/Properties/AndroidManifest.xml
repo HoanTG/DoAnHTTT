@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.doanhttt">
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
-    <application android:label="DoAnHTTT.Android" android:theme="@style/MainTheme" android:usesCleartextTraffic="true">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.doanhttt" android:installLocation="preferExternal">
+	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
+	<application android:label="DoAnHTTT.Android" android:theme="@style/MainTheme" android:usesCleartextTraffic="true">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyA3neTZfExvpCM5aItSxuEAhh6SkK1BtA0"></meta-data>
 		<uses-library android:name="org.apache.http.legacy" android:required="false"></uses-library>
 	</application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

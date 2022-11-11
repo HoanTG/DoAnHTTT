@@ -5,9 +5,22 @@
              Title="Map">
     <ContentPage.Content>
         <StackLayout>
-        <maps:Map x:Name="MapApp" IsShowingUser="True" HasZoomEnabled="True" MapType="Street" TrafficEnabled="True">
-            
-        </maps:Map>
+            <maps:Map x:Name="MapApp" IsShowingUser="True" HasZoomEnabled="True" MapType="Street" TrafficEnabled="True" >
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>10.8700</x:Double>
+                                    <x:Double>106.8031</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.01</x:Double>
+                            <x:Double>0.01</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+            </maps:Map>
             <Button x:Name="btndsqa" Text="Danh sách quán" Clicked="btndsqa_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
