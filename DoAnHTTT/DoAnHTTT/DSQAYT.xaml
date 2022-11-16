@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DoAnHTTT.Control">
+             x:Class="DoAnHTTT.DSQAYT">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstdstp">
+            <ListView x:Name="lstqayt">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding MSTP}" Detail="{Binding TenTP}"/>
+                        <TextCell Text="{Binding MSQA}" Detail="{Binding TenQA}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

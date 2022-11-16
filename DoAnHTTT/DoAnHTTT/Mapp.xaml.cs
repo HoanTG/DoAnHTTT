@@ -28,8 +28,6 @@ namespace DoAnHTTT
             MapSpan mapSpan = new MapSpan(pin.Position, 0.01, 0.01);
             MapApp.MoveToRegion(mapSpan);
             MapApp.Pins.Add(pin);
-            
-    
         }
         public Mapp()
         {
@@ -44,6 +42,12 @@ namespace DoAnHTTT
         private void btndsqa_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new DSQA());
+        }
+
+        private void btnthem_Clicked(object sender, EventArgs e)
+        {
+            QuanAn quan = new QuanAn();
+            Control control = new Control(quan);
         }
     }
 }

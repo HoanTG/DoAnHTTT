@@ -22,6 +22,7 @@ namespace DoAnHTTT
             var dsqa = JsonConvert.DeserializeObject<List<QuanAn>>(kq);
             lstqa.ItemsSource = dsqa;
         }
+
         public DSQA()
         {
             InitializeComponent();

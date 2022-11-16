@@ -12,20 +12,20 @@ using Xamarin.Forms.Xaml;
 namespace DoAnHTTT
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Control : ContentPage
+    public partial class DSQAYT : ContentPage
     {
-       /* async void LayDSTP()
+        async void ThemQuanAnYT(QuanAn quanAn)
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://192.168.2.24/doan/api/ThanhPho/LayDSThanhPho");
-            var dstp = JsonConvert.DeserializeObject<List<City>>(kq);
-            lstdstp.ItemsSource = dstp;
-        }*/
-        public Control()
+                ("http://192.168.2.61/doan/api/QuanAn/ThemQuanAnYeuThich");
+            var dsqa = JsonConvert.DeserializeObject<List<QuanAn>>(kq);
+            lstqayt.ItemsSource = dsqa;
+        }
+        public DSQAYT(QuanAn quanAn)
         {
             InitializeComponent();
-            //LayDSTP();
+            ThemQuanAnYT(quanAn);
         }
     }
 }

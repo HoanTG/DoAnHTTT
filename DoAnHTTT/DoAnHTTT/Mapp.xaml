@@ -22,6 +22,7 @@
                 </x:Arguments>
             </maps:Map>
             <Button x:Name="btndsqa" Text="Danh sách quán" Clicked="btndsqa_Clicked"/>
+            <Button x:Name="btnthem" Text="Them" Clicked="btnthem_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
