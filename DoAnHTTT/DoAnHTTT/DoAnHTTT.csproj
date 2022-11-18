@@ -19,9 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="FlyoutPageMap.xaml.cs">
-      <DependentUpon>FlyoutPageMap.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Mapp.xaml.cs">
       <DependentUpon>Mapp.xaml</DependentUpon>
     </Compile>
@@ -35,9 +32,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="FlyLayoutMenu.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="FlyoutPageMap.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Mapp.xaml">

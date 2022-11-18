@@ -13,6 +13,18 @@ namespace DoAnHTTT
         public MainPage()
         {
             InitializeComponent();
+            flyout.lstMenu.ItemSelected += LstMenu_ItemSelected;
+        }
+
+        private void LstMenu_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var item = e.SelectedItem as Menu;
+            if (item != null)
+            {
+                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetPage));
+                flyout.lstMenu.SelectedItem = item;
+                IsPresented= false;
+            }
         }
     }
 }

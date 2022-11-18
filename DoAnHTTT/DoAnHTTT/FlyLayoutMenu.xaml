@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:DoAnHTTT"
-             x:Class="DoAnHTTT.FlyLayoutMenu">
+             x:Class="DoAnHTTT.FlyLayoutMenu"
+             Title="Menu">
     <ContentPage.Content>
-        <ListView>
+        <ListView x:Name="lstMenu" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:Menu}">
                     <local:Menu title="Danh sách quán ăn" icon="cuahang.jpg" TargetPage="{x:Type local:DSQA}"/>

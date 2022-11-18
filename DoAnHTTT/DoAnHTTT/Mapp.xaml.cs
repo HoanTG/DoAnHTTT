@@ -43,11 +43,6 @@ namespace DoAnHTTT
             MarkPlace(qa);
         }
 
-        private void btndsqa_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new DSQA());
-        }
-
         private async void btnthem_Clicked(object sender, EventArgs e)
         {
             QuanAn qa = new QuanAn();
