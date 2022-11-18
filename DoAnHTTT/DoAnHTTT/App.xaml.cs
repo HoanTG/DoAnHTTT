@@ -9,8 +9,7 @@ namespace DoAnHTTT
         public App()
         {
             InitializeComponent();
-            //MainPage = new NavigationPage(new Control());
-            MainPage = new NavigationPage(new Mapp());
+            MainPage = new DoAnHTTT.MainPage();
         }
 
         protected override void OnStart()
