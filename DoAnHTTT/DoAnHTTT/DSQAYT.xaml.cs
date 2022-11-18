@@ -14,18 +14,10 @@ namespace DoAnHTTT
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DSQAYT : ContentPage
     {
-        async void ThemQuanAnYT(QuanAn quanAn)
-        {
-            HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync
-                ("http://192.168.2.61/doan/api/QuanAn/ThemQuanAnYeuThich");
-            var dsqa = JsonConvert.DeserializeObject<List<QuanAn>>(kq);
-            lstqayt.ItemsSource = dsqa;
-        }
-        public DSQAYT(QuanAn quanAn)
+        
+        public DSQAYT()
         {
             InitializeComponent();
-            ThemQuanAnYT(quanAn);
         }
     }
 }
