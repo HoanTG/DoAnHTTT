@@ -4,13 +4,33 @@
              x:Class="DoAnHTTT.DSQAYT">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lstqayt">
-                <ListView.ItemTemplate>
+            <CollectionView x:Name="lstqayt">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding MSQA}" Detail="{Binding TenQA}"/>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete"
+                                               BackgroundColor="Red"
+                                               Invoked="SwipeItem_Invoked"
+                                               CommandParameter="{Binding .}"
+                                               />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding MSQA}" Grid.Row="0"/>
+                                    <Label Text="{Binding TenQA}" Grid.Row="1"/>
+                                </Grid>
+                            </StackLayout>
+                        </SwipeView>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

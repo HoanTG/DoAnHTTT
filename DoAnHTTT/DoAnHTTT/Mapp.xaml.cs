@@ -54,7 +54,8 @@ namespace DoAnHTTT
             await DisplayAlert("Thêm thành công", "Quán ăn đã được lưu: " + kqtv.ToString(), "Ok");*/
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://192.168.2.16/doan/api/QuanAn/ThemQuanAnYeuThich?MSQA="+msqa);
+                ("http://192.168.1.138/doan/api/QuanAn/ThemQuanAnYeuThich?MSQA=" + msqa);
+            await DisplayAlert("Thông báo", "Thêm thành công", "Ok");
         }
     }
 }
