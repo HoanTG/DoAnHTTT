@@ -20,8 +20,9 @@ namespace DoAnHTTT
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync("http://192.168.1.138/doan/api/QuanAn/DSQuanAnYeuThich");
             var dsqayt = JsonConvert.DeserializeObject<List<QuanAn>>(kq);
-            lstqayt.ItemsSource = dsqayt;  
+            lstqayt.ItemsSource = dsqayt;
         }
+        
         public DSQAYT()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace DoAnHTTT
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync("http://192.168.1.138/doan/api/QuanAn/XoaQuanYeuThich?MSQA=" + qa.MSQA);
             await DisplayAlert("Thông báo", "Xoá thành công", "Ok");
+            DSQuanAnYeuThich();
         }
     }
 }
