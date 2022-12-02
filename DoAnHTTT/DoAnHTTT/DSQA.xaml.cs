@@ -18,7 +18,7 @@ namespace DoAnHTTT
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://192.168.1.138/doan/api/QuanAn/DSQuanAn");
+                ("http://192.168.3.227/doan/api/QuanAn/DSQuanAn");
             var dsqa = JsonConvert.DeserializeObject<List<QuanAn>>(kq);
             lstqa.ItemsSource = dsqa;
         }

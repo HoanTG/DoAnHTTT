@@ -26,7 +26,8 @@ namespace DoAnHTTT.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            Xamarin.FormsMaps.Init(this, savedInstanceState);
+            //Xamarin.FormsMaps.Init(this, savedInstanceState);
+            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
         protected override void OnStart()
@@ -44,23 +45,10 @@ namespace DoAnHTTT.Droid
                 }
             }
         }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
-            if (requestCode == RequestLocationId)
-            {
-                if((grantResults.Length == 1) && (grantResults[0]==(int)Permission.Granted))
-                {
-                    //Permission granted - display a message
-                }
-                else
-                {
-                    //Permission denied - display a message
-                }
-            }
-            else
-            {
-                Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-            }
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }

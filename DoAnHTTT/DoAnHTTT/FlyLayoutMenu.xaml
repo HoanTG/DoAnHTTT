@@ -4,9 +4,9 @@
              x:Class="DoAnHTTT.FlyLayoutMenu"
              Title="Menu">
     <ContentPage.Content>
-        <ListView x:Name="lstMenu" x:FieldModifier="public">
+        <ListView x:Name="lstMenu" x:FieldModifier="public" Margin="20">
             <ListView.ItemsSource>
-                <x:Array Type="{x:Type local:Menu}">
+                <x:Array Type="{x:Type local:Menu}" >
                     <local:Menu title="Danh sách quán ăn" icon="cuahang.jpg" TargetPage="{x:Type local:DSQA}"/>
                     <local:Menu title="Quán ăn yêu thích" icon="cuahang.jpg" TargetPage="{x:Type local:DSQAYT}"/>
                 </x:Array>
@@ -20,7 +20,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="{Binding icon}"/>
-                            <Label Text="{Binding title}" Grid.Column="1"/>
+                            <Label Text="{Binding title}" Grid.Column="1" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Medium"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
