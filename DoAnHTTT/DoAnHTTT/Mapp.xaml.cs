@@ -9,9 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using DoAnHTTT.ViewModel;
+using Xamarin.Forms.GoogleMaps;
 
 namespace DoAnHTTT
 {
