@@ -118,9 +118,6 @@ namespace DoAnHTTT
 
             }
             MapApp.Polylines.Add(polyline);
-
-            MapApp.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Distance.FromMiles(0.50f)));
-
             Pin pin = new Pin 
             {
                 Type = PinType.Place,
