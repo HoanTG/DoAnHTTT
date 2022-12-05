@@ -18,7 +18,7 @@ namespace DoAnHTTT
         async void DSQuanAnYeuThich()
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://192.168.3.227/doan/api/QuanAn/DSQuanAnYeuThich");
+            var kq = await http.GetStringAsync("http://172.22.80.1/doan/api/QuanAn/DSQuanAnYeuThich");
             var dsqayt = JsonConvert.DeserializeObject<List<QuanAn>>(kq);
             lstqayt.ItemsSource = dsqayt;
         }
@@ -34,9 +34,10 @@ namespace DoAnHTTT
             var SwipeItem = sender as SwipeItem;
             var qa = SwipeItem.CommandParameter as QuanAn;
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://192.168.3.227/doan/api/QuanAn/XoaQuanYeuThich?MSQA=" + qa.MSQA);
+            var kq = await http.GetStringAsync("http://172.22.80.1/doan/api/QuanAn/XoaQuanYeuThich?MSQA=" + qa.MSQA);
             await DisplayAlert("Thông báo", "Xoá thành công", "Ok");
             DSQuanAnYeuThich();
         }
+
     }
 }

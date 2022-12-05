@@ -18,7 +18,7 @@ namespace DoAnHTTT.ViewModel
                 desY);
             if (googleDirection.Routes != null && googleDirection.Routes.Count > 0)
             {
-                var positions = (Enumerable.ToList(PolylineHelper.Decode(googleDirection.Routes.First().OverviewPolyline.Points)));
+                var positions = Enumerable.ToList(PolylineHelper.Decode(googleDirection.Routes.First().OverviewPolyline.Points));
                 return positions;
             }
             else

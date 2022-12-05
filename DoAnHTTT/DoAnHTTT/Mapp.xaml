@@ -11,8 +11,8 @@
                 MyLocationEnabled="True" 
                 MapType="Street" 
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
-                AbsoluteLayout.LayoutFlags="All">
-                
+                AbsoluteLayout.LayoutFlags="All"
+                >
             </maps:Map>
             <Button 
                 x:Name="btnthem" 
@@ -20,12 +20,14 @@
                 Clicked="btnthem_Clicked" 
                 Margin="20" 
                 AbsoluteLayout.LayoutBounds="50,600,300,100"/>
-            <Button 
+            <ImageButton 
                 x:Name="btnTrackpath"
-                Text="Path"
+                Source="icon_direction.png"
+                HeightRequest="80"
+                WidthRequest="80"
                 Clicked="btnTrackpath_Clicked"
                 Margin="20"
-                AbsoluteLayout.LayoutBounds="50,400,300,100"/>
+                AbsoluteLayout.LayoutBounds="340,500,80,80"/>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

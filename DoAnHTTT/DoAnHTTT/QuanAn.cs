@@ -15,7 +15,11 @@ namespace DoAnHTTT
         public string TenTP { get; set; }
         public double X { get; set; }
         public double Y { get; set; }
-
-        
+        public string Address { get; set; }
+        public string SetAddress()
+        {
+            Address = soNha + " " + TenP + ", " + TenQ + ", " + TenTP;
+            return Address;
+        }
     }
 }

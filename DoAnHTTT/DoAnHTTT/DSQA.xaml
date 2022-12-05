@@ -2,13 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DoAnHTTT.DSQA"
-             Title="Danh sách quán ăn">
+             Title="Danh sách quán ăn"
+             NavigationPage.HasBackButton="True"
+             NavigationPage.BackButtonTitle="quay lại"
+             >
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="lstqa" ItemSelected="lstqa_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding MSQA}" Detail="{Binding TenQA}"/>
+                        <TextCell Text="{Binding TenQA}" Detail="{Binding Address}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
