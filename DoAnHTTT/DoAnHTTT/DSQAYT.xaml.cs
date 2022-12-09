@@ -15,10 +15,25 @@ namespace DoAnHTTT
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DSQAYT : ContentPage
     {
+        QuanAn selecteditem;
+        public QuanAn SeletedItem
+        {
+            get
+            {
+                return selecteditem;
+            }
+            set
+            {
+                if (selecteditem != value)
+                {
+                    selecteditem = value;
+                }
+            }
+        }
         async void DSQuanAnYeuThich()
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://172.22.80.1/doan/api/QuanAn/DSQuanAnYeuThich");
+            var kq = await http.GetStringAsync("http://172.16.21.101/doan/api/QuanAn/DSQuanAnYeuThich");
             var dsqayt = JsonConvert.DeserializeObject<List<QuanAn>>(kq);
             lstqayt.ItemsSource = dsqayt;
         }
@@ -34,10 +49,19 @@ namespace DoAnHTTT
             var SwipeItem = sender as SwipeItem;
             var qa = SwipeItem.CommandParameter as QuanAn;
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://172.22.80.1/doan/api/QuanAn/XoaQuanYeuThich?MSQA=" + qa.MSQA);
-            await DisplayAlert("Thông báo", "Xoá thành công", "Ok");
+            bool answer = await DisplayAlert("Thông báo", "Bạn có muốn xoá hay không", "Có","Không");
+            if(answer)
+            {
+                var kq = await http.GetStringAsync("http://172.16.21.101/doan/api/QuanAn/XoaQuanYeuThich?MSQA=" + qa.MSQA);
+            }
             DSQuanAnYeuThich();
         }
-
+        private void lstqayt_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selecteditem = e.CurrentSelection[0] as QuanAn;
+            if (selecteditem != null)
+                //DisplayAlert("Thong bao", $"{selecteditem.MSQA}", "Ok");
+                Navigation.PushAsync(new Mapp(selecteditem));
+        }
     }
 }

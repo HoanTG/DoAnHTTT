@@ -5,13 +5,13 @@
              Title="Map"
              BackgroundColor="LightGreen">
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <maps:Map 
                 x:Name="MapApp" 
                 MyLocationEnabled="True" 
                 MapType="Street" 
                 AbsoluteLayout.LayoutBounds="0,0,1,1"
-                AbsoluteLayout.LayoutFlags="All"
+                AbsoluteLayout.LayoutFlags="All" 
                 >
             </maps:Map>
             <Button 

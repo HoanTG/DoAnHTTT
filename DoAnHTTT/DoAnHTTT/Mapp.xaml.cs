@@ -98,7 +98,7 @@ namespace DoAnHTTT
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://172.22.80.1/doan/api/QuanAn/ThemQuanAnYeuThich?MSQA=" + msqa);
+                ("http://172.16.21.101/doan/api/QuanAn/ThemQuanAnYeuThich?MSQA=" + msqa);
             await DisplayAlert("Thông báo", "Thêm thành công", "Ok");
         }
 
@@ -107,6 +107,7 @@ namespace DoAnHTTT
             var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
             cts = new CancellationTokenSource();
             var location = await Geolocation.GetLocationAsync(request,cts.Token);
+            Console.WriteLine(location.Latitude.ToString() + "  " + location.Longitude.ToString() + "  " + pinX + "  " + pinY);
             var path = await mapViewModel.LoadRoute(location.Latitude.ToString(), location.Longitude.ToString(), pinX, pinY);
 
             MapApp.Polylines.Clear();
@@ -116,8 +117,9 @@ namespace DoAnHTTT
             polyline.StrokeWidth = 3;
 
 
-            foreach (var p in path)
+            for (int i = 0; i < path.Count; i++)
             {
+                Position p = path[i];
                 polyline.Positions.Add(p);
 
             }
@@ -125,7 +127,7 @@ namespace DoAnHTTT
             MapApp.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(polyline.Positions[0].Latitude, polyline.Positions[0].Longitude), Distance.FromMiles(0.50f)));
             Pin pin = new Pin
             {
-                Type = PinType.SearchResult,
+                Type = PinType.Place,
                 Position = new Position(polyline.Positions.First().Latitude, polyline.Positions.First().Longitude),
                 Label = "Pin",
                 Address = "Pin",
@@ -134,24 +136,7 @@ namespace DoAnHTTT
             MapApp.Pins.Add(pin);
      
 
-            void UpdatePostions(Position position)
-            {
-                if (MapApp.Pins.Count == 1 && MapApp.Polylines != null && MapApp.Polylines.Count > 1)
-                    return;
-                var cPin = MapApp.Pins.FirstOrDefault();
-
-                if (cPin != null)
-                {
-                    cPin.Position = new Position(position.Latitude, position.Longitude);
-                    MapApp.MoveToRegion(MapSpan.FromCenterAndRadius(cPin.Position, Distance.FromMeters(200)));
-                    var previousPosition = MapApp.Polylines?.FirstOrDefault()?.Positions?.FirstOrDefault();
-                    MapApp.Polylines?.FirstOrDefault()?.Positions?.Remove(previousPosition.Value);
-                }
-                else
-                {
-                    MapApp.Polylines?.FirstOrDefault()?.Positions?.Clear();
-                }
-            }
+            
 
             var positionIndex = 1;
 
@@ -166,6 +151,24 @@ namespace DoAnHTTT
                 else
                 {
                     return false;
+                }
+                void UpdatePostions(Position position)
+                {
+                    if (MapApp.Pins.Count == 1 && MapApp.Polylines != null && MapApp.Polylines.Count > 1)
+                        return;
+                    var cPin = MapApp.Pins.FirstOrDefault();
+
+                    if (cPin != null)
+                    {
+                        cPin.Position = new Position(position.Latitude, position.Longitude);
+                        MapApp.MoveToRegion(MapSpan.FromCenterAndRadius(cPin.Position, Distance.FromMeters(200)));
+                        var previousPosition = MapApp.Polylines?.FirstOrDefault()?.Positions?.FirstOrDefault();
+                        MapApp.Polylines?.FirstOrDefault()?.Positions?.Remove(previousPosition.Value);
+                    }
+                    else
+                    {
+                        MapApp.Polylines?.FirstOrDefault()?.Positions?.Clear();
+                    }
                 }
             });
         }

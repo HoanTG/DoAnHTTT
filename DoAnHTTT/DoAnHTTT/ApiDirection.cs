@@ -33,7 +33,7 @@ namespace DoAnHTTT
         {
             GoogleDirection googleDirection = new GoogleDirection();
 
-            var response = await client.GetAsync($"api/directions/json?mode=driving&transit_routing_preference=less_driving&origin={startX},{startY}&destination={desX},{desY}&key={AppConstrant.GoogleApiKey}").ConfigureAwait(false);
+            var response = await client.GetAsync($"api/directions/json?mode=driving&transit_routing_preference=less_driving&origin={startX},{startY}&destination={desX},{desY}&key={AppConstrant.GoogleApiKey}");//.ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);

@@ -6,7 +6,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <CollectionView x:Name="lstqayt">
+            <CollectionView x:Name="lstqayt" SelectionMode="Single" SelectionChanged="lstqayt_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <SwipeView>

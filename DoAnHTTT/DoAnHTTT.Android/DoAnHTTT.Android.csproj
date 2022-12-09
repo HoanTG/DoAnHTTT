@@ -60,9 +60,6 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Android.Support.Annotations">
-      <Version>25.4.0.2</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.Core">
       <Version>1.7.0.2</Version>
     </PackageReference>
