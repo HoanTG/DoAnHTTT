@@ -107,7 +107,6 @@ namespace DoAnHTTT
             var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
             cts = new CancellationTokenSource();
             var location = await Geolocation.GetLocationAsync(request,cts.Token);
-            Console.WriteLine(location.Latitude.ToString() + "  " + location.Longitude.ToString() + "  " + pinX + "  " + pinY);
             var path = await mapViewModel.LoadRoute(location.Latitude.ToString(), location.Longitude.ToString(), pinX, pinY);
 
             MapApp.Polylines.Clear();
