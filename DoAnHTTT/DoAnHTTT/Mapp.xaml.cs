@@ -63,6 +63,7 @@ namespace DoAnHTTT
                 var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
                 cts = new CancellationTokenSource();
                 var location = await Geolocation.GetLocationAsync(request,cts.Token);
+                
                 if (location != null)
                 {
                     Position position = new Position(location.Latitude, location.Longitude);
@@ -98,7 +99,7 @@ namespace DoAnHTTT
         {
             HttpClient http = new HttpClient();
             var kq = await http.GetStringAsync
-                ("http://172.16.21.101/doan/api/QuanAn/ThemQuanAnYeuThich?MSQA=" + msqa);
+                ("http://192.168.2.33/doan/api/QuanAn/ThemQuanAnYeuThich?MSQA=" + msqa);
             await DisplayAlert("Thông báo", "Thêm thành công", "Ok");
         }
 
@@ -106,8 +107,9 @@ namespace DoAnHTTT
         {
             var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
             cts = new CancellationTokenSource();
-            var location = await Geolocation.GetLocationAsync(request,cts.Token);
-            var path = await mapViewModel.LoadRoute(location.Latitude.ToString(), location.Longitude.ToString(), pinX, pinY);
+            var location = await Geolocation.GetLocationAsync(request, cts.Token);
+            Position positionUser = new Position(location.Latitude, location.Longitude);
+            var path = await mapViewModel.LoadRoute(positionUser.Latitude.ToString(), positionUser.Longitude.ToString(), pinX, pinY);
 
             MapApp.Polylines.Clear();
 

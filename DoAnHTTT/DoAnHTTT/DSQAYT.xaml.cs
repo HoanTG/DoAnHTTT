@@ -33,7 +33,7 @@ namespace DoAnHTTT
         async void DSQuanAnYeuThich()
         {
             HttpClient http = new HttpClient();
-            var kq = await http.GetStringAsync("http://172.16.21.101/doan/api/QuanAn/DSQuanAnYeuThich");
+            var kq = await http.GetStringAsync("http://192.168.2.33/doan/api/QuanAn/DSQuanAnYeuThich");
             var dsqayt = JsonConvert.DeserializeObject<List<QuanAn>>(kq);
             lstqayt.ItemsSource = dsqayt;
         }
@@ -52,7 +52,7 @@ namespace DoAnHTTT
             bool answer = await DisplayAlert("Thông báo", "Bạn có muốn xoá hay không", "Có","Không");
             if(answer)
             {
-                var kq = await http.GetStringAsync("http://172.16.21.101/doan/api/QuanAn/XoaQuanYeuThich?MSQA=" + qa.MSQA);
+                var kq = await http.GetStringAsync("http://192.168.2.33/doan/api/QuanAn/XoaQuanYeuThich?MSQA=" + qa.MSQA);
             }
             DSQuanAnYeuThich();
         }

@@ -23,17 +23,13 @@ namespace DoAnHTTT
                 return _ServiceClientInstance;
             }
         }
-        private HttpClient client;
-        public ApiDirection()
-        {
-            client = new HttpClient();
-            client.BaseAddress = new Uri("https://maps.googleapis.com/maps/");
-        }
+        private HttpClient client = new HttpClient();
+        
         public async Task<GoogleDirection> GetDirection(string startX, string startY, string desX, string desY)
         {
             GoogleDirection googleDirection = new GoogleDirection();
 
-            var response = await client.GetAsync($"api/directions/json?mode=driving&transit_routing_preference=less_driving&origin={startX},{startY}&destination={desX},{desY}&key={AppConstrant.GoogleApiKey}");//.ConfigureAwait(false);
+            var response = await client.GetAsync($"https://maps.googleapis.com/maps/api/directions/json?destination={desX},{desY}&origin={startX},{startY}&mode=driving&key={AppConstrant.GoogleApiKey}");//.ConfigureAwait(false);
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);

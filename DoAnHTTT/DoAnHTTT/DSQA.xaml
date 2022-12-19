@@ -11,7 +11,7 @@
             <ListView x:Name="lstqa" ItemSelected="lstqa_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding TenQA}" Detail="{Binding Address}"/>
+                        <TextCell Text="{Binding TenQA}" Detail="{Binding Address}" DetailColor="Black"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
